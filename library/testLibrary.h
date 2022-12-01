@@ -20,6 +20,12 @@ int digitCount(int number);
 //prints all divisible numbers by div1 and div2 between startNum and maxNum -> modify at your own needs.
 void isDivisible(int startNum, int maxNum, int div1, int div2);
 
+//returns true or false value if the input value equals to the stored value.
+bool validateNum(int userNum, int validNum);
+
+//
+void askCorrectNumLimited(int *userNum, int validNum, int maxErrors);
+
 /******************************************/
 /*********Array related functions*********/
 /******************************************/

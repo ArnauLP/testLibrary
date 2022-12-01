@@ -3,6 +3,7 @@
 /*Arnau López | C++ | Library */
 
 #include <iostream>
+#include <iomanip>
 #include "testLibrary.h"
 
 /******************************************/
@@ -72,11 +73,55 @@ void askCorrectNumLimited(int *userNum, int validNum, int maxErrors) {
         std::cout << "Number correct continuing..." << std::endl;
     } else {
         std::cout << "Blocked";
-        ::exit(0);
+        std::exit(0);
+    }
+}
+
+//simple function to draw a custom rectangle
+void drawRectangle(int height, int width, char symbol) {
+    for (int i = 0; i < height; ++i) { //controls height
+        for (int j = 0; j < width; ++j) { //controls width
+            std::cout << std::setw(3) << symbol; // assigns the width of 3 fields at every characters
+        }
+        std::cout << std::endl;
+    }
+}
+
+//just a simple custom triangle
+void drawTriangle(int length, char symbol){
+    for (int i = 0; i <= length; ++i) {
+        for (int j = 0; j <= i; ++j) {
+            std::cout << std::setw(2) << symbol;
+        }
+        std::cout << std::endl;
+    }
+}
+//just a simple custom triangle (inverted)
+void drawTriangleInv(int length, char symbol){
+    for (int i = length; i >= 1; --i) {
+        for (int j = 1; j <= i  ; ++j) {
+            std::cout << std::setw(2) << symbol;
+        }
+        std::cout << std::endl;
+    }
+}
+//just a romb / 2
+void drawSemiRomb(int length, char symbol){
+    for (int i = 0; i <= length; ++i) {
+        for (int j = 0; j <= i; ++j) {
+            std::cout << std::setw(2) << symbol;
+        }
+        std::cout << std::endl;
+    }
+
+    for (int i = length; i >= 1; --i) {
+        for (int j = 1; j <= i  ; ++j) {
+            std::cout << std::setw(2) << symbol;
+        }
+        std::cout << std::endl;
     }
 }
 
 /******************************************/
 /*********Array related functions*********/
-/******************************************/
-
+/*****************************************/

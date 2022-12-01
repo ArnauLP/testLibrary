@@ -23,8 +23,17 @@ void isDivisible(int startNum, int maxNum, int div1, int div2);
 //returns true or false value if the input value equals to the stored value.
 bool validateNum(int userNum, int validNum);
 
-//
+//ask with limited inputs the correct number
 void askCorrectNumLimited(int *userNum, int validNum, int maxErrors);
+
+//simple function to draw a custom rectangle
+void drawRectangle(int height, int width, char symbol);
+
+void drawTriangle(int length, char symbol);
+
+void drawTriangleInv(int length, char symbol);
+
+void drawSemiRomb(int length, char symbol);
 
 /******************************************/
 /*********Array related functions*********/

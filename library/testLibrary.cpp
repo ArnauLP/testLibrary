@@ -5,6 +5,7 @@
 #include <iostream>
 #include <iomanip>
 #include "testLibrary.h"
+#include <stdlib.h>
 
 /******************************************/
 /*********Number related functions*********/
@@ -88,7 +89,7 @@ void drawRectangle(int height, int width, char symbol) {
 }
 
 //just a simple custom triangle
-void drawTriangle(int length, char symbol){
+void drawTriangle(int length, char symbol) {
     for (int i = 0; i <= length; ++i) {
         for (int j = 0; j <= i; ++j) {
             std::cout << std::setw(2) << symbol;
@@ -96,17 +97,19 @@ void drawTriangle(int length, char symbol){
         std::cout << std::endl;
     }
 }
+
 //just a simple custom triangle (inverted)
-void drawTriangleInv(int length, char symbol){
+void drawTriangleInv(int length, char symbol) {
     for (int i = length; i >= 1; --i) {
-        for (int j = 1; j <= i  ; ++j) {
+        for (int j = 1; j <= i; ++j) {
             std::cout << std::setw(2) << symbol;
         }
         std::cout << std::endl;
     }
 }
+
 //just a romb / 2
-void drawSemiRomb(int length, char symbol){
+void drawSemiRomb(int length, char symbol) {
     for (int i = 0; i <= length; ++i) {
         for (int j = 0; j <= i; ++j) {
             std::cout << std::setw(2) << symbol;
@@ -115,7 +118,7 @@ void drawSemiRomb(int length, char symbol){
     }
 
     for (int i = length; i >= 1; --i) {
-        for (int j = 1; j <= i  ; ++j) {
+        for (int j = 1; j <= i; ++j) {
             std::cout << std::setw(2) << symbol;
         }
         std::cout << std::endl;
@@ -125,3 +128,66 @@ void drawSemiRomb(int length, char symbol){
 /******************************************/
 /*********Array related functions*********/
 /*****************************************/
+
+int comparator(const void *x, const void *y) {
+    return (*(int *) x - *(int *) y);
+}
+
+//use a typedef
+void SortArrayMinToMax(int *array, int arraySize, const int ARRAY_MAX_SIZE) {
+    while (arraySize > ARRAY_MAX_SIZE) {
+        std::cout << "Expected: size cannot be bigger than MAX SIZE" << std::endl;
+        std::cin >> arraySize;
+    }
+    //sorting algorithm
+    qsort(array, arraySize, sizeof(int), comparator);
+    //print the array values
+    for (int i = 0; i < arraySize; i++) {
+        std::cout << array[i] << std::endl;
+    }
+}
+
+void CreateAndSortArrayMinToMax(int *array, int arraySize, const int ARRAY_MAX_SIZE) {
+    while (arraySize > ARRAY_MAX_SIZE) {
+        std::cout << "Expected: size cannot be bigger than MAX SIZE" << std::endl;
+        std::cin >> arraySize;
+    }
+    //add values to the array
+    for (int i = 0; i < arraySize; ++i) {
+        std::cout << "Input the array numbers: " << std::endl;
+        std::cin >> array[i];
+    }
+    //sorting algorithm
+    qsort(array, arraySize, sizeof(int), comparator);
+    //print the array values
+    for (int i = 0; i < arraySize; i++) {
+        std::cout << array[i] << std::endl;
+    }
+
+}
+
+void UserCreateAndSortArrayMinToMax(int *array) {
+    int arraySize;
+    int ARRAY_MAX_SIZE;
+
+    std::cout << "Max size:" << std::endl;
+    std::cin >> ARRAY_MAX_SIZE;
+    std::cout << "Size:" << std::endl;
+    std::cin >> arraySize;
+
+    while (arraySize > ARRAY_MAX_SIZE) {
+        std::cout << "Expected: size cannot be bigger than MAX SIZE" << std::endl;
+        std::cin >> arraySize;
+    }
+    //add values to the array
+    for (int i = 0; i < arraySize; ++i) {
+        std::cout << "Input the array numbers:" << std::endl;
+        std::cin >> array[i];
+    }
+    //sorting algorithm
+    qsort(array, arraySize, sizeof(int), comparator);
+    //print the array values
+    for (int i = 0; i < arraySize; i++) {
+        std::cout << array[i] << std::endl;
+    }
+}
